@@ -1,0 +1,5 @@
+curl -s https://getcomposer.org/installer | php # Download composer
+
+docker-compose build #Build application
+
+composer create-project --prefer-dist cakephp/app:~4.0 . #Install cakephp app inside container

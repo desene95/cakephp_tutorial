@@ -1,0 +1,25 @@
+version: "3.1"
+services:
+  php-fpm:
+    image: webdevops/php-nginx:7.4
+    container_name: myapp-webserver
+    build: .
+    working_dir: /var/www/html
+    volumes:
+      - ./cake_app:/var/www/html
+    environment:
+      - WEB_DOCUMENT_ROOT=/var/www/html/webroot
+    ports:
+      - "9000:80"
+  # mysql:
+  #   image: mysql:5.6
+  #   container_name: myapp-mysql
+  #   working_dir: /app
+  #   volumes:
+  #     - .:/app
+  #     - ./tmp/data/mysql_db:/var/lib/mysql
+  #   env_file:
+  #     - mysql.env
+  #   command: mysqld --character-set-server=utf8 --init-connect='SET NAMES UTF8;'
+  #   ports:
+  #     - "3306:3306"
